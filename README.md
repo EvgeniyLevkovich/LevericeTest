@@ -40,6 +40,7 @@ Leverice
             test
             util
             page
+            
     GIT flow:
     
     https://github.com/EvgeniyLevkovich/LevericeTest/tree/project-structure/src/test/resources
@@ -47,11 +48,4 @@ Leverice
         ~ Master brunch + feature brunches,
          merge according to the personal wishes of the team, self-review.
          The mentor periodically makes a review of what is in the master and makes corrections,
-         directs the team and leads it to success.           
-  
-    тестовый сервер:
-        https://autotest.leverice.net/public/client/
-    почтовый веб-сервис, где можно смотреть все исходящие имейлы:
-        https://autotest.leverice.net/email
-            MailHog on GitHub: https://github.com/mailhog/MailHog
-  
+         directs the team and leads it to success. 
