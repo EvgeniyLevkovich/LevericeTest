@@ -13,7 +13,7 @@ public class LoginPage {
     private static final String CREATE_WORKSPACE_TEXT = "Create a new Workspace";
     private static final String EMAIL_NAME = "email";
     private static final String CONTINUE_BUTTON_TEXT = "Continue";
-
+    private static final String VALIDATION_CODE_FIELD_CSS = "input[inputmode=numeric]";
 
     public void openPage() {
         open(URL);
@@ -28,6 +28,10 @@ public class LoginPage {
         $(byText(CREATE_WORKSPACE_TEXT)).click();
         $(byName(EMAIL_NAME)).sendKeys(email);
         $(byText(CONTINUE_BUTTON_TEXT)).click();
+    }
+    public void enterValidationCode() {
+        $(VALIDATION_CODE_FIELD_CSS);
+        System.out.println(MailHogPage.validationCode);
 
     }
 }
