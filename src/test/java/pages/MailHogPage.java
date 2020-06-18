@@ -1,12 +1,13 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import lombok.Data;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selectors.byClassName;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 @Data
 public class MailHogPage {
@@ -15,7 +16,7 @@ public class MailHogPage {
     private static final String URL = "https://autotest.leverice.net/email/";
     private static final String MESSAGES_CSS = ".messages";
     private static final String VALIDATION_CODE_CSS = ".validation-code";
-
+    private static final String IFRAME_ID = "preview-html";
 
     public void openPage() {
         open(URL);
@@ -28,9 +29,8 @@ public class MailHogPage {
 
     public void getValidationCode(String email) {
         $(byText(email)).click();
-        //тут нужно как-то переключить фрейм
+        switchTo().frame(IFRAME_ID);
         ValidationCode = $(VALIDATION_CODE_CSS).getText();
-        System.out.println(ValidationCode);
     }
 
 }
