@@ -1,18 +1,17 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.openqa.selenium.By;
+import lombok.NoArgsConstructor;
 
-import static com.codeborne.selenide.Selectors.byClassName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 @Data
 public class MailHogPage {
 
-    public String ValidationCode;
+    public static String validationCode;
     private static final String URL = "https://autotest.leverice.net/email/";
     private static final String MESSAGES_CSS = ".messages";
     private static final String VALIDATION_CODE_CSS = ".validation-code";
@@ -30,7 +29,7 @@ public class MailHogPage {
     public void getValidationCode(String email) {
         $(byText(email)).click();
         switchTo().frame(IFRAME_ID);
-        ValidationCode = $(VALIDATION_CODE_CSS).getText();
+        validationCode = $(VALIDATION_CODE_CSS).getText();
     }
 
 }
