@@ -95,5 +95,4 @@
             <version>${jackson-dataformat-yaml.version}</version>
         </dependency>
     </dependencies>
-
 </project>
