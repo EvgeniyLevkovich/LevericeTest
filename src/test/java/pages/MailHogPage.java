@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import lombok.Data;
 
 import static com.codeborne.selenide.Selectors.byText;
@@ -16,6 +17,8 @@ public class MailHogPage {
     private static final String FRAME_ID = "preview-html";
 
     public void openPage() {
+        Selenide.executeJavaScript("window.open()");
+        switchTo().window(1);
         open(URL);
         isPageOpened();
     }
@@ -28,5 +31,10 @@ public class MailHogPage {
         $(byText(email)).click();
         switchTo().frame(FRAME_ID);
         validationCode = $(VALIDATION_CODE_CSS).getText();
+    }
+
+    public void closeMailHog() {
+        Selenide.closeWindow();
+        switchTo().window(0);
     }
 }
