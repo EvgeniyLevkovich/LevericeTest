@@ -1,9 +1,8 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
-import lombok.AllArgsConstructor;
+import com.codeborne.selenide.Selenide;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -15,9 +14,11 @@ public class MailHogPage {
     private static final String URL = "https://autotest.leverice.net/email/";
     private static final String MESSAGES_CSS = ".messages";
     private static final String VALIDATION_CODE_CSS = ".validation-code";
-    private static final String IFRAME_ID = "preview-html";
+    private static final String FRAME_ID = "preview-html";
 
     public void openPage() {
+        Selenide.executeJavaScript("window.open()");
+        switchTo().window(1);
         open(URL);
         isPageOpened();
     }
@@ -28,8 +29,12 @@ public class MailHogPage {
 
     public void getValidationCode(String email) {
         $(byText(email)).click();
-        switchTo().frame(IFRAME_ID);
+        switchTo().frame(FRAME_ID);
         validationCode = $(VALIDATION_CODE_CSS).getText();
     }
 
+    public void closeMailHog() {
+        Selenide.closeWindow();
+        switchTo().window(0);
+    }
 }
