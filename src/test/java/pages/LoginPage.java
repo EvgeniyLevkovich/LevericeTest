@@ -30,8 +30,6 @@ public class LoginPage {
         $(byText(CONTINUE_BUTTON_TEXT)).click();
     }
     public void enterValidationCode() {
-        $(VALIDATION_CODE_FIELD_CSS);
-        System.out.println(MailHogPage.validationCode);
-
+        $(VALIDATION_CODE_FIELD_CSS).sendKeys(MailHogPage.validationCode);
     }
 }

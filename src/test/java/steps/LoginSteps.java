@@ -19,6 +19,7 @@ public class LoginSteps {
         mailHogPage.getValidationCode(email);
         loginPage.openPage();
         loginPage.proceedToCreatingANewWorkspace(email);
+        loginPage.enterValidationCode();
 
 
     }

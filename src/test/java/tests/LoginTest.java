@@ -6,6 +6,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginTest() {
-        loginSteps.login("test@mail.ru", "test1");
+        loginSteps.login("test2@mail.ru", "test1");
     }
 }
