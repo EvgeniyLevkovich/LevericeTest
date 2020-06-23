@@ -6,7 +6,7 @@ import com.github.javafaker.service.RandomService;
 import java.util.Locale;
 
 public class EmailGenerator {
-     public String fakeEmail;
+     public static String fakeEmail;
 
     public void generateEmail() {
         FakeValuesService fakeValuesService = new FakeValuesService(
