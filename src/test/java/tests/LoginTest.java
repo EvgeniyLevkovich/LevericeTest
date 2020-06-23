@@ -5,12 +5,17 @@ import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
 
-    @Test
+    @Test(priority = 1)
     public void registrationTest() {
         loginSteps.registration( "Jack", "Daniels", "New Workspace");
     }
+
+    @Test(priority = 2)
+    public void login() {
+        loginSteps.login("New Workspace");
+    }
 }
 
-/* При написании тестов ставьте  loginSteps.registration первым шагом, после чего открывается дэшборд Леврайса,
- и следющими степами уже пишете свои тесты. Считаете это как openPage();
+/* используйте login() чтобы открыть Леврайс, после чего можно писать свои тесты
+registrationTest() следует запускать один раз в сутки чтобы создать Workspace, в который будет логиниться login()
  */

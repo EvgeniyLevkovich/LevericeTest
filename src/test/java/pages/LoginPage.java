@@ -1,9 +1,11 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
 import org.openqa.selenium.Keys;
+import utils.EmailGenerator;
 
 import java.util.Locale;
 
@@ -11,7 +13,6 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPage {
-
 
     private static final String URL = "https://autotest.leverice.net/public/client/";
     private static final String LOGIN_PAGE_IMAGE_CSS = ".tutorial-img__content";
@@ -23,9 +24,7 @@ public class LoginPage {
     private static final String LAST_NAME_NAME = "lname";
     private static final String SUBMIT_INTRODUCE_YOURSELF_TEXT = "Continue";
     private static final String WORKSPACE_NAME_CSS = ".textarea__inner.in-workspace-wizard";
-
-
-
+    private static final String SIGN_IN_TEXT = "Open a Workspace you already work in.";
 
     public void openPage() {
         open(URL);
@@ -55,7 +54,20 @@ public class LoginPage {
     public void createWorkspace(String newWorkspaceName) {
         $(byCssSelector(WORKSPACE_NAME_CSS)).waitUntil(Condition.visible,10000);
         sleep(1000);
-        $(byCssSelector(WORKSPACE_NAME_CSS)).sendKeys("newWorkspaceName", Keys.ENTER);
+        $(byCssSelector(WORKSPACE_NAME_CSS)).sendKeys(newWorkspaceName, Keys.ENTER);
     }
 
+    public void closeTab() {
+        Selenide.closeWindow();
+    }
+
+    public void proceedToSignIn(String email) {
+        $(byText(SIGN_IN_TEXT)).click();
+        $(byName(EMAIL_NAME)).sendKeys(email);
+        $(byText(CONTINUE_BUTTON_TEXT)).click();
+    }
+
+    public void selectWorkspace(String workspaceName) {
+        $(byText(workspaceName)).click();
+    }
 }

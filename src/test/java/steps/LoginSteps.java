@@ -16,14 +16,24 @@ public class LoginSteps {
     }
 
     public void registration(String firstName, String lastName, String newWorkspaceName) {
-        emailGenerator.generateEmail();
         loginPage.openPage();
-        loginPage.proceedToCreatingANewWorkspace(emailGenerator.fakeEmail);
+        loginPage.proceedToCreatingANewWorkspace(EmailGenerator.fakeEmail);
         mailHogPage.openPage();
-        mailHogPage.getValidationCode(emailGenerator.fakeEmail);
+        mailHogPage.getValidationCode(EmailGenerator.fakeEmail);
         mailHogPage.closeMailHog();
         loginPage.enterValidationCode();
         loginPage.fillIntroduceYourselfFields(firstName, lastName);
         loginPage.createWorkspace(newWorkspaceName);
+        loginPage.closeTab();
+    }
+
+    public void login(String workspaceName) {
+        loginPage.openPage();
+        loginPage.proceedToSignIn(EmailGenerator.fakeEmail);
+        mailHogPage.openPage();
+        mailHogPage.getValidationCode(EmailGenerator.fakeEmail);
+        mailHogPage.closeMailHog();
+        loginPage.enterValidationCode();
+        loginPage.selectWorkspace(workspaceName);
     }
 }
