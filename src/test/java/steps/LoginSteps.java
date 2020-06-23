@@ -16,6 +16,7 @@ public class LoginSteps {
     }
 
     public void registration(String firstName, String lastName, String newWorkspaceName) {
+        emailGenerator.generateEmail();
         loginPage.openPage();
         loginPage.proceedToCreatingANewWorkspace(EmailGenerator.fakeEmail);
         mailHogPage.openPage();
@@ -27,11 +28,11 @@ public class LoginSteps {
         loginPage.closeTab();
     }
 
-    public void login(String workspaceName) {
+    public void login(String login, String workspaceName) {
         loginPage.openPage();
-        loginPage.proceedToSignIn(EmailGenerator.fakeEmail);
+        loginPage.proceedToSignIn(login);
         mailHogPage.openPage();
-        mailHogPage.getValidationCode(EmailGenerator.fakeEmail);
+        mailHogPage.getValidationCode(login);
         mailHogPage.closeMailHog();
         loginPage.enterValidationCode();
         loginPage.selectWorkspace(workspaceName);

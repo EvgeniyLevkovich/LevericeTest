@@ -17,9 +17,7 @@ public class BaseTest {
         Configuration.startMaximized = true;
         Configuration.headless = false;
         Configuration.holdBrowserOpen = true;
-        emailGenerator = new EmailGenerator();
-        emailGenerator.generateEmail();
-        
+
     }
 
     @BeforeMethod
