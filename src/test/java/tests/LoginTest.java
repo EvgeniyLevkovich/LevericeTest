@@ -12,10 +12,9 @@ public class LoginTest extends BaseTest {
 
     @Test(priority = 2)
     public void login() {
-        loginSteps.login("New Workspace");
+        loginSteps.login("test42@mailinator.com","Test Workspace");
     }
 }
 
-/* используйте login() чтобы открыть Леврайс, после чего можно писать свои тесты
-registrationTest() следует запускать один раз в сутки чтобы создать Workspace, в который будет логиниться login()
+/* используйте login() чтобы открыть Леврайс, после чего можно писать свои тесты.
  */
