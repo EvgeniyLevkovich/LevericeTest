@@ -7,12 +7,16 @@ public class LoginTest extends BaseTest {
 
     @Test(priority = 1)
     public void registrationTest() {
-        loginSteps.registration( "Jack", "Daniels", "New Workspace");
+        loginSteps.createANewWorkspace();
+        loginSteps.fakeEmailMailHogValidation();
+        loginSteps.fillWorkspaceFields("Jack", "Daniels", "New Workspace");
     }
 
     @Test(priority = 2)
     public void login() {
-        loginSteps.login("test42@mailinator.com","Test Workspace");
+        loginSteps.signIn("test42@mailinator.com");
+        loginSteps.MailHogValidation("test42@mailinator.com");
+        loginSteps.selectWorkspace("Test Workspace");
     }
 }
 
