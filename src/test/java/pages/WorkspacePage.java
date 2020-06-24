@@ -4,8 +4,7 @@ import com.codeborne.selenide.Condition;
 import java.util.List;
 import static com.codeborne.selenide.Condition.exactValue;
 import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 
 public class WorkspacePage {
 
@@ -50,14 +49,12 @@ public class WorkspacePage {
 
     public void fillFolderName(String folderName){
         $(byXpath(FOLDER_NAME_XPATH)).sendKeys(folderName);
+        sleep(1000);
         $(byCssSelector(ACCEPT_BUTTON)).click();
+        sleep(1000);
     }
 
     public void checkNewFolder(String folderName){
-        List<String> allFolders = $$(byCssSelector(LIST_OF_FOLDERS)).texts();
-        System.out.println("Channel members: " + allFolders);
-        String createdFolder = $(byText(folderName)).getText();
-        allFolders.contains(exactValue(createdFolder));
-        System.out.println("Created Folder: " + createdFolder);
+        $(byText(folderName)).isDisplayed();
     }
 }
