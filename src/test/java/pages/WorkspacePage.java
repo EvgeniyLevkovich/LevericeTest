@@ -17,20 +17,29 @@ public class WorkspacePage {
     private static final String LIST_OF_USERS = ".user-card__fullName";
     private static final String CANCEL_BUTTON = "Cancel";
 
-    public void inviteUsersByEnterEmail(String userEmail){
+
+    public void clickInviteUser() {
         $(byText(INVITE_USERS_BUTTON)).click();
         $(byCssSelector(ACTION_BUTTON)).waitUntil(Condition.visible, 10000);
+    }
+
+    public void inviteUser(String userEmail) {
         $(byXpath(INVITE_USERS_BY_EMAIL)).sendKeys(userEmail);
         $(byCssSelector(ACTION_BUTTON)).click();
     }
 
-    public void checkForInvitedUser(String userEmail){
+    public void manageMembers() {
         $(byXpath(TO_OPEN_OPTIONS_LOCATOR)).click();
         $(byText(CHOOSE_MANAGE_MEMBERS_OPTION)).click();
+    }
+
+    public void checkForInvitedUser(String userEmail) {
         List<String> allUsers = $$(byCssSelector(LIST_OF_USERS)).texts();
         System.out.println("Channel members: " + allUsers);
         $$(byCssSelector(LIST_OF_USERS)).contains(exactValue(userEmail));
         System.out.println("Invited User: " + userEmail);
         $(byText(CANCEL_BUTTON)).click();
     }
+
+
 }
