@@ -15,7 +15,6 @@ public class ChannelSteps {
     }
     public ChannelSteps writeTextMessage(String textMessage){
         channelPage
-                .clickField()
                 .enterText(textMessage);
         return this;
     }
