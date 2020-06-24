@@ -6,12 +6,14 @@ import org.testng.annotations.BeforeSuite;
 import steps.LoginSteps;
 import steps.WorkspaceSteps;
 import utils.EmailGenerator;
+import utils.FolderGenerator;
 
 
 public class BaseTest {
     LoginSteps loginSteps;
     WorkspaceSteps workspaceSteps;
     EmailGenerator emailGenerator;
+    FolderGenerator folderGenerator;
 
 
     @BeforeSuite
@@ -29,6 +31,7 @@ public class BaseTest {
         loginSteps = new LoginSteps();
         emailGenerator = new EmailGenerator();
         workspaceSteps = new WorkspaceSteps();
+        folderGenerator = new FolderGenerator();
     }
 
 }
