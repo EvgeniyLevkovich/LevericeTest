@@ -3,6 +3,7 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import pages.MailHogPage;
 import steps.LoginSteps;
 import steps.WorkspaceSteps;
 import utils.EmailGenerator;
@@ -14,6 +15,8 @@ public class BaseTest {
     WorkspaceSteps workspaceSteps;
     EmailGenerator emailGenerator;
     FolderGenerator folderGenerator;
+    TextGenerator textGenerator;
+    MailHogPage mailHogPage;
 
 
     @BeforeSuite
@@ -32,6 +35,10 @@ public class BaseTest {
         emailGenerator = new EmailGenerator();
         workspaceSteps = new WorkspaceSteps();
         folderGenerator = new FolderGenerator();
+        channelTest = new ChannelTest();
+        channelSteps = new ChannelSteps();
+        textGenerator = new TextGenerator();
+        mailHogPage = new MailHogPage();
     }
 
 }
