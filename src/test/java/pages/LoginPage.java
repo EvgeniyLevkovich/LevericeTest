@@ -22,7 +22,8 @@ public class LoginPage {
 
     public void openPage() {
         open(URL);
-        isPageOpened();
+        sleep(1000);
+       isPageOpened();
     }
 
     public void isPageOpened() {
