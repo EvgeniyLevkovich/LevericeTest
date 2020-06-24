@@ -1,19 +1,18 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import pages.WorkspacePage;
 import steps.LoginSteps;
+import steps.WorkspaceSteps;
 import utils.EmailGenerator;
 
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class BaseTest {
     LoginSteps loginSteps;
+    WorkspaceSteps workspaceSteps;
     EmailGenerator emailGenerator;
-    WorkspacePage workspacePage;
+
 
     @BeforeSuite
     public void setupBrowser() {
@@ -29,11 +28,7 @@ public class BaseTest {
     public void openBrowser() {
         loginSteps = new LoginSteps();
         emailGenerator = new EmailGenerator();
-        workspacePage = new WorkspacePage();
+        workspaceSteps = new WorkspaceSteps();
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void closeBrowser(){
-        getWebDriver().quit();
-    }
 }
