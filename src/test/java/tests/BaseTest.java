@@ -1,8 +1,8 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
+import com.codeborne.selenide.Selenide;
+import org.testng.annotations.*;
 
 import pages.MailHogPage;
 import steps.LoginSteps;
@@ -27,17 +27,14 @@ public class BaseTest {
     MailHogPage mailHogPage;
  
 
-    @BeforeSuite
-    public void setupBrowser() {
+
+    @BeforeClass
+    public void openBrowser() {
         Configuration.clickViaJs = true;
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
         Configuration.headless = false;
         Configuration.holdBrowserOpen = true;
-    }
-
-    @BeforeMethod
-    public void openBrowser() {
         loginSteps = new LoginSteps();
         loginTest = new LoginTest();
         loginPage = new LoginPage();
@@ -48,5 +45,11 @@ public class BaseTest {
         channelSteps = new ChannelSteps();
         textGenerator = new TextGenerator();
         mailHogPage = new MailHogPage();
+    }
+
+    @AfterMethod
+    public void closeBrowser()
+    {
+        Selenide.closeWebDriver();
     }
 }

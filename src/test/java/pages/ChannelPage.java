@@ -40,7 +40,6 @@ public class ChannelPage {
         sleep(1000);
         List<String> listOfMessage = $$(byCssSelector(TEXT_MESSAGE)).texts();
         $$(byCssSelector(TEXT_MESSAGE)).contains(exactValue(textMessage));
-        log.info("ffff");
         return this;
     }
 }
