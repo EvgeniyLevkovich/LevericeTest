@@ -3,14 +3,16 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import pages.LoginPage;
+
 import pages.MailHogPage;
-import steps.ChannelSteps;
 import steps.LoginSteps;
 import steps.WorkspaceSteps;
 import utils.EmailGenerator;
+import utils.FolderGenerator;
+import pages.LoginPage;
+import steps.ChannelSteps;
 import utils.TextGenerator;
-
+import utils.EmailGenerator;
 
 public class BaseTest {
     LoginSteps loginSteps;
@@ -20,9 +22,10 @@ public class BaseTest {
     ChannelTest channelTest;
     ChannelSteps channelSteps;
     EmailGenerator emailGenerator;
+    FolderGenerator folderGenerator;
     TextGenerator textGenerator;
     MailHogPage mailHogPage;
-
+ 
 
     @BeforeSuite
     public void setupBrowser() {
@@ -31,7 +34,6 @@ public class BaseTest {
         Configuration.startMaximized = true;
         Configuration.headless = false;
         Configuration.holdBrowserOpen = true;
-
     }
 
     @BeforeMethod
@@ -41,10 +43,10 @@ public class BaseTest {
         loginPage = new LoginPage();
         emailGenerator = new EmailGenerator();
         workspaceSteps = new WorkspaceSteps();
+        folderGenerator = new FolderGenerator();
         channelTest = new ChannelTest();
         channelSteps = new ChannelSteps();
         textGenerator = new TextGenerator();
         mailHogPage = new MailHogPage();
     }
-
 }
