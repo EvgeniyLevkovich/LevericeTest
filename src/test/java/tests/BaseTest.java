@@ -12,6 +12,7 @@ import utils.FolderGenerator;
 import pages.LoginPage;
 import steps.ChannelSteps;
 import utils.TextGenerator;
+import utils.EmailGenerator;
 
 public class BaseTest {
     LoginSteps loginSteps;
@@ -24,6 +25,7 @@ public class BaseTest {
     FolderGenerator folderGenerator;
     TextGenerator textGenerator;
     MailHogPage mailHogPage;
+ 
 
     @BeforeSuite
     public void setupBrowser() {
