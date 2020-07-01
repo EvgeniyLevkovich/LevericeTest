@@ -17,7 +17,7 @@
         <testng.version>7.0.0</testng.version>
         <allure-testng.version>2.7.0</allure-testng.version>
         <lombok.version>1.18.8</lombok.version>
-        <log4j-core.version>2.12.1</log4j-core.version>
+        <log4j-core.version>2.13.2</log4j-core.version>
         <jackson-dataformat-yaml.version>2.10.1</jackson-dataformat-yaml.version>
         <javafaker.version>0.15</javafaker.version>
     </properties>
