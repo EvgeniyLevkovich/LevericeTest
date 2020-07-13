@@ -17,7 +17,7 @@ Leverice
         io.qameta.allure
         selenide
         testng
-        lombok
+        
         
     Team:
     
@@ -29,9 +29,9 @@ Leverice
         Git repository
         checklist
         README.md and rules for working with GIT
-        framework structure (Selenide, TestNG, Allure, Lombok)
+        framework structure (Selenide, TestNG, Allure, Maven)
         organization / workspace in which basic checks will be carried out
-        mechanism for interacting with MailHog (https://autotest.leverice.net/email/)
+        mechanism for interacting with MailHog 
         tests according to checklist
         CircleCI Connection   
              
@@ -39,7 +39,8 @@ Leverice
     
             test
             util
-            page
+            pages
+            steps
             
     GIT flow:
     
