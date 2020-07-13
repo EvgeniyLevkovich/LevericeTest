@@ -34,7 +34,7 @@ public class BaseTest {
         Configuration.timeout = 10000;
         Configuration.startMaximized = true;
         Configuration.headless = false;
-        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = true;   // выставить false для закрытия браузера
         loginSteps = new LoginSteps();
         loginTest = new LoginTest();
         loginPage = new LoginPage();
